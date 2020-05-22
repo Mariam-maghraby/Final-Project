@@ -1,11 +1,13 @@
 package com.Mcoding;
 
-public class Main {
-private String title, author, dateofpublish; 
+public class book {
+private String title, author, dateofpublish;
+	Scanner entering = new Scanner(System.in);
 	
-    public void Book (Scanner entering, String title, String author, String dateofpublish) {
+    public Book () {
 	    System.out.println("Enter any data about the book");
-	    Scanner entering = new Scanner(System.in);
+	    Scanner scan = new Scanner(System.in);
+	    String bookName = scan.next();
 	    
 	    
 	
