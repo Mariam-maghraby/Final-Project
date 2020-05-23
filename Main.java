@@ -2,42 +2,61 @@ package CMPproject;
 
 import java.util.Scanner;
 
-public class Main {
+public class library {
 
-    public static void main(String[] args) {
-        Scanner scan = new Scanner(System.in);
-        System.out.println("Enter the no. of books needed to be entered:");
-        int arrayCols = scan.nextInt();
-        String array[][] = new String[3][arrayCols];
-        enterBooksData(scan, array, arrayCols);
-        printBookData(array, arrayCols);
-    }
+	public static void main(String[] args) {
+		int options=0;
+		while (options!=-1){
+			System.out.println("please choise the option you want to do, please press ");
+			System.out.println("1 to insert books");
+			System.out.println("2 to brrow book");
+			System.out.println("3 to add or remove member");
+			Scanner input =new Scanner (System.in);
+			options=input.nextInt();
+			if (options==1) InsertBooks();
+			if(options==3) members();
+		}
 
-    public static void enterBooksData(Scanner scan1, String[][] matrix,  int matrixColumn) {
-        System.out.println("Enter the book data");
-        System.out.println("Enter the book name");
-        String bookName = scan1.next();
-        System.out.println("Enter the author name");
-        String authorName = scan1.next();
-        System.out.println("Enter the date of publishing");
-        String dateOfPublish = scan1.next();
-        for (int i = 0; i < 2; i++) {
-            for (int j = 0; j < matrixColumn-1; j++) {
-                matrix[3][matrixColumn] = String.valueOf(scan1.nextInt());
-            }
-        }
-        System.out.println(matrix);
-    }
+	}
 
-    public static void printBookData(String[][] matrix, int matrixCols) {
-        System.out.println("The Data of the book: ");
-        for (int i = 0; i < 2; i++) {
-            for (int j = 0; j < matrixCols; j++) {
-                System.out.print(matrix[i][j] + "\t");
-            }
-            System.out.println();
+	public static void InsertBooks() {
+	int counter;
+		System.out.println("please enter the number of books: ");
+		Scanner input=new Scanner (System.in);
+		int num=input.nextInt();
+		book bookslist[]=new book[num];
+		for ( int i=0; i<num; i++){
+				System.out.println("please enter title, auther name, date of publishing, copies number");
+				book book1=new book();
+				book1.title =input.next();
+				book1.auther=input.next();
+				book1.dateofpublishing=input.next();
+				book1.copies=input.nextInt();
+				bookslist[i]=book1;
+				//System.out.println(bookslist[i].title);		
+		}
+		
+		
+	
 
-        }
-    }
-}
+		}
+	public static void members(){
+		System.out.println("please enter the number of users: ");
+		Scanner input=new Scanner (System.in);
+		int usernum=input.nextInt(); 
+		users users[]=new users[usernum]; 
+		for(int i=0; i<usernum; i++){
+			System.out.println("please enter user name: ");
+			users user1 = new users();
+			user1.userName=input.next();
+			for(int j= i+1; j<=usernum; j++){
+				if(users[i]==users[j]){
+					System.out.println("user name alreay exist");
+				}
+			}
 
+				}
+		}
+		
+		
+	}
